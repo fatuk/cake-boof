@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Cake boof</title>
+</head>
+<body>
+	<div class="faces"></div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<style>
+		.faces {
+			display: inline-block;
+			background-image: url(foreheads1-min.png),
+				url(foreheads2-min.png),
+				url(eyes1-min.png),
+				url(eyes2-min.png),
+				url(mouth1-min.png),
+				url(mouth2-min.png),
+				url(shirt1-min.png),
+				url(shirt2-min.png);
+			background-size: auto, auto, auto;
+			padding: 0;
+			margin: 0;
+			height: 409px;
+			width: calc(416px * 100);
+		}
+	</style>
+	<script type="text/javascript">
+		var $body = $('body');
+		var $faces = $('.faces');
+		var quantity = 100;
+		var step = 416;
+		var margin = step / 2;
+		var variation = 1000;
+
+		$faces.css({
+			'width': step * quantity + 'px',
+			'background-position': step * getRandom(0, variation) + 'px'
+		});
+
+		for (var i = 0; i < quantity; i++) {
+			var $name = $('<div></div>');
+
+			$name.css({
+				'position': 'absolute',
+				'top': 420 + 'px',
+				'left': step * i,
+				'text-align': 'center',
+				'font-size': '20px',
+				'text-transform': 'uppercase',
+				'font-family': 'sans-serif',
+				'padding-bottom': '5px',
+				'width': step + 'px'
+			});
+			$name.text(getName());
+			$body.append($name);
+		}
+
+		function getName () {
+			var first = [
+				'kons',
+				'tantin',
+				'ma',
+				'xim',
+				'ale',
+				'xey',
+				'and',
+				'rey',
+				'rew',
+				'niko',
+				'lay',
+				'dmi',
+				'try',
+				'ev',
+				'geniy',
+				'vla',
+				'dimir'
+			];
+			var last = [
+				'ryz',
+				'hikh',
+				'ko',
+				'valev',
+				'shep',
+				'itko',
+				'fat',
+				'uk',
+				'sit',
+				'nikov',
+				'ole',
+				'ynikov',
+				'vor',
+				'onin',
+				'sohry',
+				'akov'
+			];
+
+			return first[getRandom()] + first[getRandom()] + ' ' + last[getRandom()] + last[getRandom()];
+		}
+
+		function getRandom (min, max) {
+			var _max = min || 15;
+			var _min = max || 0;
+			return Math.round(Math.random() * (_max - _min) + _min);
+		}
+
+	</script>
+</body>
+</html>
