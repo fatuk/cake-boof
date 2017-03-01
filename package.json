@@ -4,7 +4,7 @@
   "description": "friendly cartoon",
   "main": "index.html",
   "scripts": {
-    "start": "browser-sync start -s --port=8080",
+    "start": "browser-sync start -s --port=8080 --no-ghost-mode",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Andrew Fatuk",
